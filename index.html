@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/phaser.js">    </script>
+
+  </head>
+  <body>
+    <script>
+
+      var game;
+      var cadeados;
+      window.onload = function() {
+      	   game = new Phaser.Game(480, 320, Phaser.AUTO, "");
+           game.state.add("Menu", menu);
+           game.state.add("Fases", fases);
+           game.state.start("Menu");
+      }
+
+      var menu = function(game){};
+
+      menu.prototype = {
+           preload: function(){
+             game.load.image('fundo','assets/imagens/fundoMenu.png');
+             game.load.spritesheet('btJogar','assets/imagens/botaoJogar.png',205,50);
+
+           },
+           create: function(){
+             game.add.sprite(0,0,'fundo');
+
+             var btJogar = game.add.button(180, 200, 'btJogar', this.actionOnClick, this, 2, 1, 0);
+
+
+           },
+           update: function(){
+           },
+
+
+          actionOnClick: function() {
+
+            game.state.start("Fases");
+
+
+          }
+      }
+
+      var fases = function(game){};
+      var fase1, fase2, fase3, fase4;
+
+      fases.prototype = {
+           preload: function(){
+             game.load.image('fundo','assets/imagens/fundoFases.png');
+             game.load.image('cadeado','assets/imagens/cadeado.png',720,960);
+
+           },
+           create: function(){
+             game.add.sprite(0,0,'fundo');
+             fase1 = game.add.sprite(50,50,'cadeado');
+             fase1.scale.setTo(0.1,0.1);
+
+             fase2 = game.add.sprite(150,50,'cadeado');
+             fase2.scale.setTo(0.1,0.1);
+
+             fase3 = game.add.sprite(250,50,'cadeado');
+             fase3.scale.setTo(0.1,0.1);
+
+             fase1.
+
+
+
+           },
+           update: function(){
+           },
+
+
+          actionOnClick: function() {
+
+
+          }
+      }
+
+
+
+    </script>
+
+
+
+  </body>
+</html>
